@@ -1,0 +1,11 @@
+<h3>Rezepte</h3>
+<div class="mt-5 mb-5" *ngFor="let item of items; let i = index">
+    <div class="row" (click)="onItemClick($event, i)">
+        <div class="col-md-4">
+            <img [src]="item.img" class="img-fluid">
+        </div>
+        <div class="col-md-8">
+            <h3>{{item.title}}</h3>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">{{title}}</a>
+    <button class="navbar-toggler" type="button" (click)="onNavMenuBtnClick()"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse" id="navbarNavAltMarkup" [class.collapse]="navMenuCollapsed">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="plan" routerLinkActive="active">Wochenplan</a>
+        <a class="nav-item nav-link" routerLink="recipes" routerLinkActive="active">Rezepte</a>
+        <a class="nav-item nav-link" routerLink="shopping-list" routerLinkActive="active">Einkaufsliste</a>
+        <a class="nav-item nav-link" routerLink="ingredients" routerLinkActive="active">Zutaten</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
