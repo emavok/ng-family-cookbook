@@ -1,0 +1,37 @@
+
+@import '~@angular/material/theming';
+
+@mixin my-footer-color($config-or-theme) {
+  $config: mat-get-color-config($config-or-theme);
+  $primary: map-get($config, primary);
+  $accent: map-get($config, accent);
+  $warn: map-get($config, warn);
+  $background: map-get($config, background);
+  $foreground: map-get($config, foreground);
+
+  .my-footer {
+    background: mat-color($background, app-bar);
+
+    span {
+      color: mat-color($primary);
+    }
+
+  }
+}
+
+
+@mixin my-footer-typography($config-or-theme) {
+  $config: mat-get-typography-config($config-or-theme);
+}
+
+@mixin my-footer-theme($theme-or-color-config) {
+    $color: mat-get-color-config($theme-or-color-config);
+    $typography: mat-get-typography-config($theme-or-color-config);
+
+    @if $color != null {
+      @include my-footer-color($color);
+    }
+    @if $typography != null {
+      @include my-footer-typography($typography);
+    }
+}

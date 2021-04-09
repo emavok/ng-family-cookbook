@@ -1,22 +1,48 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">{{title}}</a>
-    <button class="navbar-toggler" type="button" (click)="onNavMenuBtnClick()"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse" id="navbarNavAltMarkup" [class.collapse]="navMenuCollapsed">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="plan" routerLinkActive="active">Wochenplan</a>
-        <a class="nav-item nav-link" routerLink="recipes" routerLinkActive="active">Rezepte</a>
-        <a class="nav-item nav-link" routerLink="shopping-list" routerLinkActive="active">Einkaufsliste</a>
-        <a class="nav-item nav-link" routerLink="ingredients" routerLinkActive="active">Zutaten</a>
-      </div>
-    </div>
-  </div>
-</nav>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav>
+        <mat-toolbar color="accent">
+            <button mat-icon-button aria-label="Back" (click)="sidenav.close()">
+                <mat-icon>chevron_left</mat-icon>
+            </button>
+            <span>Menu</span>
+        </mat-toolbar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="min-height: 100vh" fxLayout="column">
+            <header>
+                <mat-toolbar color="primary" fxLayout="row">
+                    <span fxFlex fxHide.sm>
+                    </span>
+                    <span fxFlex.gt-sm="920px" fxFlex="grow">
+                        <button mat-icon-button aria-label="Menu" (click)="sidenav.toggle()">
+                            <mat-icon>menu</mat-icon>
+                        </button>
+                        <span>Welcome to FCB</span>
+                        <span fxFlex></span>
+                        <button mat-icon-button aria-label="Account">
+                            <mat-icon>account_circle</mat-icon>
+                        </button>
+                        <button mat-icon-button aria-label="Logout">
+                            <mat-icon>logout</mat-icon>
+                        </button>
+                    </span>
+                    <span fxFlex fxHide.sm>
+                    </span>
+                </mat-toolbar>
+            </header>
+            <div role="main" fxFlex>
 
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
-
+            </div>
+            <footer class="my-footer">
+                <span fxFlex></span>
+                <span fxFlex.gt-sm="920px" fxFlex="grow">
+                    <span fxFlex></span>
+                    <span>
+                        &copy; 2021 by JVM
+                    </span>
+                </span>
+                <span fxFlex></span>
+            </footer>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
