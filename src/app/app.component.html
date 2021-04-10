@@ -1,47 +1,38 @@
+<div class="loading-indicator">
+    <mat-progress-bar color="accent" mode="indeterminate"></mat-progress-bar>
+</div>
 <mat-sidenav-container>
     <mat-sidenav #sidenav>
         <mat-toolbar color="accent">
-            <button mat-icon-button aria-label="Back" (click)="sidenav.close()">
-                <mat-icon>chevron_left</mat-icon>
-            </button>
-            <span>Menu</span>
+            <app-menu (menuClose)="onMenuClose()"></app-menu>
         </mat-toolbar>
     </mat-sidenav>
     <mat-sidenav-content>
         <div style="min-height: 100vh" fxLayout="column">
-            <header>
+            <header class="header">
                 <mat-toolbar color="primary" fxLayout="row" class="mat-elevation-z8">
-                    <span fxFlex fxHide.sm>
+                    <span class="spacer" fxFlex fxHide.sm>
                     </span>
                     <span fxFlex.gt-sm="920px" fxFlex="grow">
-                        <button mat-icon-button aria-label="Menu" (click)="sidenav.toggle()">
-                            <mat-icon>menu</mat-icon>
-                        </button>
-                        <span>Welcome to FCB</span>
-                        <span fxFlex></span>
-                        <button mat-icon-button aria-label="Account">
-                            <mat-icon>account_circle</mat-icon>
-                        </button>
-                        <button mat-icon-button aria-label="Logout">
-                            <mat-icon>logout</mat-icon>
-                        </button>
+                        <app-header (menuOpen)="onMenuOpen()"></app-header>
                     </span>
-                    <span fxFlex fxHide.sm>
+                    <span class="spacer" fxFlex fxHide.sm>
                     </span>
                 </mat-toolbar>
             </header>
-            <div role="main" fxFlex>
-
-            </div>
-            <footer class="my-footer mat-elevation-z8" fxLayout="row" fxLayoutAlign="center center">
-                <span fxFlex></span>
-                <span fxFlex.gt-sm="920px" fxFlex="grow">
-                    <span fxFlex></span>
-                    <span>
-                        &copy; 2021 by JVM
-                    </span>
+            <div role="main" fxFlex class="app-main">
+                <span class="spacer" fxFlex fxHide.sm></span>
+                <span fxFlex.gt-sm="920px" fxFlex="grow" class="app-main-content">
+                    <router-outlet></router-outlet>
                 </span>
-                <span fxFlex></span>
+                <span class="spacer" fxFlex fxHide.sm></span>
+            </div>
+            <footer class="footer mat-elevation-z8" fxLayout="row" fxLayoutAlign="center center">
+                <span class="spacer" fxFlex fxHide.sm></span>
+                <span fxFlex.gt-sm="920px" fxFlex="grow">
+                    <app-footer></app-footer>
+                </span>
+                <span class="spacer" fxFlex fxHide.sm></span>
             </footer>
         </div>
     </mat-sidenav-content>

@@ -1,0 +1,39 @@
+<div class="app-login-page">
+    <div fxLayout="row">
+        <span fxFlex></span>
+        <mat-expansion-panel disabled [expanded]="true" class="login-window">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Please login to continue
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <form [formGroup]="formGroup">
+                <div fxLayout="column">
+                    <mat-form-field appearance="standard" fxFlex>
+                        <mat-label>Username or email</mat-label>
+                        <input type="text" matInput placeholder="Usename or email" formControlName="username" autofocus>
+                        <mat-hint>Please enter your username</mat-hint>
+                        <mat-error *ngIf="hasError('username', 'required')">
+                            Username is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="standard" fxFlex>
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput formControlName="password">
+                        <mat-hint>Please enter your password</mat-hint>
+                        <mat-error *ngIf="hasError('password', 'required')">
+                            Password is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <div class="form-button-row" fxFlex>
+                        <button type="submit" mat-stroked-button color="primary" (click)="onSubmitBtnClick($event)"
+                            [disabled]="formSubmitted ? true : null">
+                            Login
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </mat-expansion-panel>
+        <span fxFlex></span>
+    </div>
+</div>
