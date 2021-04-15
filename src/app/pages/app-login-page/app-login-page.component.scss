@@ -1,0 +1,55 @@
+// ----------------------------------------------------------------------------
+// anderes Zeug
+// ----------------------------------------------------------------------------
+
+
+.form-button-row {
+    margin-top: 32px;
+}
+
+.login-window {
+    width: 400px;
+}
+
+
+
+.my-login-panel {
+    margin-top: 40px;
+    width: 400px;
+}
+
+$my-panel-header-padding: 8px 8px 8px 8px !default;
+$my-panel-body-padding: 8px 8px 8px 8px !default;
+$my-panel-footer-padding: 8px 8px 8px 8px !default;
+
+$my-panel-header-font-size: 20px !default;
+$my-panel-header-line-height: 24px !default;
+
+$my-panel-header-title-padding: 0 8px 0 8px !default;
+
+$my-panel-body-min-height: 64px !default;
+
+.my-panel {
+    .my-panel-header {
+        padding: $my-panel-header-padding;
+        line-height: $my-panel-header-line-height;
+        font-size: $my-panel-header-font-size;
+
+        .my-panel-header-title {
+            padding: $my-panel-header-title-padding;
+        }
+    }
+
+    .my-panel-body {
+        padding: $my-panel-body-padding;
+        min-height: $my-panel-body-min-height;
+    }
+
+    .my-panel-footer {
+        padding: $my-panel-footer-padding;
+
+        button {
+            margin: 0 8px 0 0;
+        }
+    }
+}

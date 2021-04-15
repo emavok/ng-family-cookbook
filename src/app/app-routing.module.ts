@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { App404PageComponent } from './app-404-page';
-import { AppHomePageComponent } from './app-home-page';
-import { AppLoginPageComponent } from './app-login-page';
+import {
+    App404PageComponent,
+    AppHomePageComponent,
+    AppLoginPageComponent,
+} from './pages';
+import { SharedModule } from './shared.module';
 
 const routes: Routes = [
     { path: 'home', component: AppHomePageComponent },
@@ -13,7 +16,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [
+        SharedModule,
+        RouterModule.forRoot(routes)
+    ],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }

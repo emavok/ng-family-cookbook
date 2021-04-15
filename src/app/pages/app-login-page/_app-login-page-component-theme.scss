@@ -1,0 +1,43 @@
+@import '~@angular/material/theming';
+
+@mixin my-panel-component-color($config-or-theme) {
+  $config: mat-get-color-config($config-or-theme);
+  $primary: map-get($config, primary);
+  $accent: map-get($config, accent);
+  $warn: map-get($config, warn);
+  $background: map-get($config, background);
+  $foreground: map-get($config, foreground);
+
+  .my-panel {
+    @include mat-private-theme-overridable-elevation(2, $config);
+
+    background: mat-color($background, card);
+
+    .my-panel-header {
+        background: mat-color($primary);
+        color: mat-color($primary, default-contrast);
+    }
+
+    .my-panel-body {
+        background: mat-color($background, card);
+        color: mat-color($foreground, text);
+        border-top-color: mat-color($foreground, divider);
+    }
+  }
+}
+
+@mixin my-panel-component-typography($config-or-theme) {
+  $config: mat-get-typography-config($config-or-theme);
+}
+
+@mixin my-panel-component-theme($theme-or-color-config) {
+    $color: mat-get-color-config($theme-or-color-config);
+    $typography: mat-get-typography-config($theme-or-color-config);
+
+    @if $color != null {
+      @include my-panel-component-color($color);
+    }
+    @if $typography != null {
+      @include my-panel-component-typography($typography);
+    }
+}
